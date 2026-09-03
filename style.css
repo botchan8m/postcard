@@ -109,9 +109,6 @@ h1 {
 
     text-align: left;
 
-    white-space: pre-line;
-
-
 }
 
 
@@ -232,7 +229,7 @@ h2 {
 
     width: 45%;
 
-    aspect-ratio: 2 / 3;
+    aspect-ratio: 4 / 3;
 
     background-color: #e2e2df;
 
@@ -262,9 +259,9 @@ h2 {
 
     width: 45%;
 
-    height: auto;
+    aspect-ratio: 4 / 3;
 
-    object-fit: contain;
+    object-fit: cover;
 
     border: 1px solid #ddd;
 
@@ -313,8 +310,6 @@ h2 {
     font-size: 14px;
 
     margin-top: 15px;
-
-    white-space: pre-line;
 
 }
 
@@ -397,9 +392,6 @@ h2 {
 
     font-size: 14px;
 
-    white-space: pre-line;
-
-
 }
 
 
@@ -435,7 +427,7 @@ footer {
 
     .section {
 
-        width: min(100% - 30px, 900px);
+        width: calc(100% - 30px);
 
         padding-top: 60px;
 
@@ -444,28 +436,36 @@ footer {
     }
 
 
-    /* 写真＋文章を縦並びに */
+    /* ---------------------------------------------
+       写真と文章はスマホでも左右に並べる
+       写真：約 نصف
+       文章：約 نصف
+    --------------------------------------------- */
 
     .content-block,
 
     .content-block.reverse {
 
-        flex-direction: column;
+        flex-direction: row;
 
-        gap: 20px;
+        align-items: center;
 
-        margin-bottom: 55px;
+        gap: 15px;
+
+        margin-bottom: 40px;
 
     }
 
 
-    /* 写真の横幅をスマホでは100％に */
+    /* 写真 */
 
     .image-placeholder,
 
     .site-image {
 
-        width: 100%;
+        width: calc(50% - 7.5px);
+
+        flex-shrink: 0;
 
     }
 
@@ -474,7 +474,31 @@ footer {
 
     .content-text {
 
-        width: 100%;
+        width: calc(50% - 7.5px);
+
+        flex: none;
+
+    }
+
+
+    /* 文章の文字をスマホ用に小さく */
+
+    .content-text h3 {
+
+        font-size: 16px;
+
+        line-height: 1.5;
+
+    }
+
+
+    .content-text p {
+
+        font-size: 12px;
+
+        line-height: 1.7;
+
+        margin-top: 10px;
 
     }
 
@@ -488,7 +512,7 @@ footer {
     }
 
 
-    /* トップのボタンを縦並び */
+    /* トップのボタン */
 
     .navigation-buttons {
 
